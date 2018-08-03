@@ -5,12 +5,12 @@ let router = express.Router();
 
 router.get('/sayHello', plantsController.sayHello);
 
-router.get('/plants/', plantsController.fetchAllPlants);
+router.get('/all/', plantsController.fetchAllPlants);
 
 router.post('/new', plantsController.newPlant);
 
-router.put('/plant/:id', plantsController.updatePlant);
+router.put('/one/:id', plantsController.updatePlant);
 
-router.delete('/plant/:id', plantsController.deletePlant);
+router.delete('/one/:id', plantsController.deletePlant);
 
 module.exports = router;

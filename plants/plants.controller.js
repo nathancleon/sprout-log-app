@@ -9,7 +9,7 @@ exports.sayHello = function(req, res) {
 exports.fetchAllPlants = function(req, res) {
   PlantModel
     .find()
-    ,then((plants) => {
+    .then((plants) => {
       res.status(200).json({
         message: 'Retrieved all plants',
         data: plants
@@ -27,6 +27,7 @@ exports.newPlant = function(req, res) {
   let newPlant = new PlantModel();
 
   newPlant.name = req.body.name;
+  newPlant.currentHealth = req.body.currentHealth;
 
   newPlant
     .save()

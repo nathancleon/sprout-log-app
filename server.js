@@ -9,7 +9,7 @@ let app = express();
 app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use('/plants', plantsRoutes);
-
+app.use('/', express.static('public'))
 //Database config
 //connect to the database (in mLab)
 mongoose.connect('mongodb://user:pass123@ds161262.mlab.com:61262/healthy-plantdb', { useNewUrlParser: true });
