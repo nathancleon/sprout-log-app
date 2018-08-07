@@ -5,16 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/index.css" />
   </head>
   <body>
-    <div class="js-plant-list"></div>
+
+    <nav class="nav-bar">
+        <ul class="nav-container">
+          <li class="nav-link"> <a href="#">Sign Up</a></li>
+          <li class="nav-link"><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <video autoplay muted loop id="hero-background">
+        <source src="./greenhousemovie.mp4" type="video/mp4">
+    </video>
+    <div class="hero">
+        <div class="hero-content">
+          <h1 class="hero-text">Sprout Log</h1>
+        </div>
+    </div>
 
 
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-    <script src="./javascript/main.js"></script>
+    <script src="./javascript/index.js"></script>
   </body>
 </html>
