@@ -6,14 +6,25 @@
 }
 
 .nav {
-  min-height: 8vh;
+  height: 8vh;
   width: 100%;
   position: fixed;
+  display: flex;
   flex-direction: row;
   background-color: white;
 }
 
+svg {
+  justify-content: flex-start;
+  position: relative;
+  width: 50px;
+  max-height: 50px;
+  margin-top: 1vh;
+  margin-left: 3vw;
+}
+
 .nav__list {
+  width: 100%;
   padding-top: 3vh; 
   padding-right: 4vw;
   display: flex;
@@ -27,10 +38,34 @@
   font-size: 1rem;
 }
 
-.nav__link a {
+.nav__link--highlight {
+  position: relative;
   color: rgb(14, 173, 27);
   text-decoration: none;
 }
+
+.nav__link--highlight:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -8px;
+  background: rgb(14, 173, 27);
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.nav__link--highlight:hover:after,
+.nav__link--highlight:focus:after,
+.nav__link--highlight:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
 
 #hero-background {
   max-height: 75vh;
@@ -63,15 +98,30 @@ video {
 }
 
 .content__header {
-  margin-top: -6vh;
-  width: 50%;
+  margin-top: -4vh;
+  max-width: 380px;
   color: white;
   font-size: 5rem;
-  text-align: center;
 }
 
 .content__text {
   padding-top: 2vh;
+  padding-bottom: 4vh;
   max-width: 380px;
   font-size: 1.25rem;
+}
+
+.btn--register {
+  width: 380px;
+  height: 60px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.btn--register:hover {
+  background-color: #fff;
+  color: rgb(14, 173, 27);
+  cursor: pointer;
 }
