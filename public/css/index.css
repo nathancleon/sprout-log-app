@@ -5,7 +5,7 @@
   font-family: "Roboto", sans-serif;
 }
 
-.nav-bar {
+.nav {
   min-height: 8vh;
   width: 100%;
   position: fixed;
@@ -13,7 +13,7 @@
   background-color: white;
 }
 
-.nav-container {
+.nav__list {
   padding-top: 3vh; 
   padding-right: 4vw;
   display: flex;
@@ -22,12 +22,12 @@
   list-style: none;
 }
 
-.nav-link {
+.nav__link {
   padding-left: 4vw;
   font-size: 1rem;
 }
 
-.nav-link a {
+.nav__link a {
   color: rgb(14, 173, 27);
   text-decoration: none;
 }
@@ -54,13 +54,24 @@ video {
   width: 100%;
 }
 
-.hero-content {
+.hero__content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-.hero-text {
-  margin-top: 15vh;
+.content__header {
+  margin-top: -6vh;
+  width: 50%;
   color: white;
   font-size: 5rem;
+  text-align: center;
+}
+
+.content__text {
+  padding-top: 2vh;
+  max-width: 380px;
+  font-size: 1.25rem;
 }
