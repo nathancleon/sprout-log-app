@@ -1,0 +1,142 @@
+.plant-item {
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;  
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.nav {
+  height: 80px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(14, 173, 27);
+}
+
+.nav__svg {
+  justify-content: flex-start;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+  margin-top: 10px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.nav__list {
+  width: 100%;
+  margin-top: 35px; 
+  margin-right: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.nav__link {
+  margin-left: 80px;
+  font-size: 1rem;
+}
+
+.nav__link--highlight {
+  width: 20px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__link--highlight:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -8px;
+  background: #fff;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.nav__link--highlight:hover:after,
+.nav__link--highlight:focus:after,
+.nav__link--highlight:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.dashboard__main {
+  height: 100%;
+  width: 100%;
+  background-color:#f4f4f4;
+}
+
+.feature__links {
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 10px; 
+}
+
+.feature__links__list {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.feature__link {
+  height: 100%;
+  list-style: none;
+  margin-left: 54px;
+}
+
+.feature__link-ref {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+}
+
+.feature__link-ref:hover {
+  color: #0EAD1B;
+}
+
+.feature__link-ref:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -10px;
+  background: #0EAD1B;
+  height: 3px;
+  transition-property: width;
+  transition-duration: 0s;
+  transition-timing-function: ease-out;
+}
+
+.feature__link-ref:hover:after,
+.feature__link-ref:focus:after,
+.feature__link-ref:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
