@@ -3,8 +3,6 @@ const plantsController = require('./plants.controller');
 
 let router = express.Router();
 
-router.get('/sayHello', plantsController.sayHello);
-
 router.get('/all/', plantsController.fetchAllPlants);
 
 router.post('/new', plantsController.newPlant);

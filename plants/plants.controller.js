@@ -1,11 +1,5 @@
 const PlantModel = require('./plants.models');
 
-exports.sayHello = function(req, res) {
-  res.status(200).json({
-    message: 'this is the sayHello route'
-  });
-}
-
 exports.fetchAllPlants = function(req, res) {
   PlantModel
     .find()
@@ -27,6 +21,7 @@ exports.newPlant = function(req, res) {
   let newPlant = new PlantModel();
 
   newPlant.name = req.body.name;
+  newPlant.plantType = req.body.plantType;
   newPlant.currentHealth = req.body.currentHealth;
 
   newPlant

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 let plantSchema = new mongoose.Schema({ 
   name: String,
+  plantType: String,
   currentHealth: String,
   created: { type: String, default: new Date() }
 });

@@ -79,11 +79,6 @@ body {
   width: 100%;
 }
 
-.dashboard__main {
-  height: 100%;
-  width: 100%;
-}
-
 .feature__links {
   width: 100%;
   height: 40px;
@@ -135,13 +130,19 @@ body {
   width: 100%;
 }
 
+.dashboard__main {
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .plant__form__container {
   height: 400px;
   width: 350px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-left: 55px;
   margin-top: 60px;
 }
 
@@ -182,4 +183,59 @@ body {
 .btn--submit:hover {
   background-color: transparent;
   color: #0EAD1B;
+}
+
+.user__plant__list {
+  height: 600px;
+  width: 800px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-left: 55px;
+  margin-top: 60px;
+  overflow: auto;
+}
+
+.user__plants {
+  height: 100%;
+  padding: 40px;
+}
+
+.title__header {
+  padding: 20px;
+  font-weight: 400;
+  color: #555;
+  list-style: none;
+}
+
+.plant__item--name {
+  padding-left: 30px;
+  text-align: left;
+  color: #0EAD1B;
+  cursor: pointer;
+}
+
+.plant__item--type {
+  padding: 20px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--health {
+  padding: 20px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--date {
+  padding: 20px;
+  color: #555;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.plant__item--name:hover {
+  text-decoration: underline;
 }

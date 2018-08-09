@@ -26,17 +26,24 @@
     <main class="dashboard__main">
       <div class="plant__form__container">
           <form class="plant__form">
-            <label class="plant__name" for="plantName">Plant Name:</label>
-            <input class="plant__name--input" type="text" id="plantName">
+            <label class="plant__name" for="name">Plant Name:</label>
+            <input class="plant__name--input" type="text" id="name" name="name">
             <label class="plant__type" for="plantType">Plant Type:</label>
-            <input class="plant__type--input" type="text" id="plantType">
+            <input class="plant__type--input" type="text" id="plantType" name="plantType">
             <label class="plant__health" for="currentHealth">Current Health:</label>
-            <input class="plant__health--input" type="text" id="currentHealth">
+            <input class="plant__health--input" type="text" id="currentHealth" name="currentHealth">
             <button class="btn--submit" type="submit">Submit</button>
           </form>
         </div>
-        <div class="plant__list">
-          <!-- <div class="js-plant-list"></div> -->
+        <div class="user__plant__list">
+          <table class="user__plants" style="width:100%">
+            <tr class="list__titles">
+              <th class="title__header">Name</th>
+              <th class="title__header">Plant Type</th>
+              <th class="title__header">Current Health</th>
+              <th class="title__header">Date Created</th>
+            </tr>
+          </table>
         </div>
     </main>
     <script
