@@ -10,6 +10,10 @@ body {
   width: 100%;
 }
 
+/****************************************** 
+  Navigation
+******************************************/
+
 .nav {
   height: 80px;
   width: 100%;
@@ -73,6 +77,9 @@ body {
   width: 100%;
 }
 
+/****************************************** 
+  Jumbotron/Hero -- Register
+******************************************/
 
 #hero-background {
   height: 40vw;
@@ -133,6 +140,10 @@ video {
   color: rgb(14, 173, 27);
   cursor: pointer;
 }
+
+/****************************************** 
+  App Description and Screenshots
+******************************************/
 
 .main__description {
   display: flex;
