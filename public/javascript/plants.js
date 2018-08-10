@@ -2,7 +2,7 @@ console.log('I am working');
 function getPlants() {
   $.get('/plants/all', (plants) => {
     plants.data.forEach((plant, index) => {
-      $('.user__plants').append(renderPlantItem(plant));
+      $('.js__plants__results').append(renderPlantItem(plant));
     });
   });
 }
@@ -27,7 +27,7 @@ $('.btn--submit').click(function(event) {
     url:'./plants/new', 
     data: JSON.stringify(newPlantObject),
     success: function(data) {
-      $('.user__plants').append(renderPlantItem(newPlantObject));
+      $('.js__plants__results').append(renderPlantItem(newPlantObject));
       console.log(data);
     },
     fail: function(data) {
@@ -37,7 +37,7 @@ $('.btn--submit').click(function(event) {
 });
 
 function renderPlantItem(plant) {
-  return `<tr class="js-plant-list">
+  return `<tr class="js__plant__list">
           <th class="plant__item--name">${plant.name}</th>
           <th class="plant__item--type">${plant.plantType}</th>
           <th class="plant__item--health">${plant.currentHealth}</th>

@@ -20,14 +20,14 @@ body {
   position: relative;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: #fff;
 }
 
 .nav__svg {
   justify-content: flex-start;
   position: relative;
-  min-width: 50px;
-  min-height: 50px;
+  width: 45px;
+  height: 45px;
   margin-top: 18px;
   margin-left: 50px;
   cursor: pointer;
@@ -82,7 +82,7 @@ body {
 ******************************************/
 
 #hero-background {
-  height: 40vw;
+  height: 45vw;
 }
 
 video {
@@ -95,7 +95,7 @@ video {
 }
 
 .hero {
-  height: 40vw;
+  height: 45vw;
   top: 80px;
   right: 0;
   position: absolute;
@@ -103,6 +103,11 @@ video {
   color: #f1f1f1;
   width: 100%;
   z-index: 1;
+}
+
+.hero__svg {
+  height: 65px;
+  width: 65px;
 }
 
 .hero__content {

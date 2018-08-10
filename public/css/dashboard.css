@@ -21,7 +21,7 @@ body {
 ******************************************/
 
 .nav {
-  height: 80px;
+  height: 50px;
   width: 100%;
   position: relative;
   display: flex;
@@ -32,16 +32,16 @@ body {
 .nav__svg {
   justify-content: flex-start;
   position: relative;
-  min-width: 50px;
-  min-height: 50px;
-  margin-top: 10px;
-  margin-left: 50px;
+  width: 35px;
+  height: 35px;
+  margin-top: 8px;
+  margin-left: 60px;
   cursor: pointer;
 }
 
 .nav__list {
   width: 100%;
-  margin-top: 35px; 
+  margin-top: 20px; 
   margin-right: 65px;
   display: flex;
   flex-direction: row;
@@ -143,30 +143,30 @@ body {
 ******************************************/
 
 .dashboard__main {
+  position: relative;
+  margin-top: 50px;
   height: 80%;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 }
-
-.plant__form__container {
-  height: 400px;
-  width: 350px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 60px;
-}
-
 
 /****************************************** 
   New Plant Form
 ******************************************/
 
+.plant__form__container {
+  display: inline-block;
+  height: 500px;
+  width: 500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
 .plant__form {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 60px;
 }
 
 .plant__name, .plant__type, .plant__health {
@@ -187,7 +187,7 @@ body {
 }
 
 .btn--submit {
-  margin-top: 20px;
+  margin-top: 40px;
   height: 2.5rem;
   background-color: #0EAD1B;
   border: 1px solid #ddd;
@@ -207,51 +207,73 @@ body {
 ******************************************/
 
 .user__plant__list {
-  height: 600px;
-  width: 800px;
+  align-self: center;
+  display: inline-block;
+  height: 100%;
+  min-width: 1000px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
+  padding: 20px;
   margin-left: 55px;
-  margin-top: 60px;
   overflow: auto;
 }
 
 .user__plants {
-  height: 100%;
-  padding: 40px;
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 80px;
+  padding-bottom: 20px;
+}
+
+.list__titles {
+  display: flex;
+  justify-content: space-around;
 }
 
 .title__header {
-  padding: 20px;
   font-weight: 400;
   color: #555;
-  list-style: none;
+}
+
+.js__plants__results {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.js__plant__list {
+  border: 1px solid #ddd;
 }
 
 .plant__item--name {
-  padding-left: 30px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
   text-align: left;
   color: #0EAD1B;
   cursor: pointer;
 }
 
 .plant__item--type {
-  padding: 20px;
+  border-left: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
   color: #555;
   font-weight: 400;
   font-size: 14px;
 }
 
 .plant__item--health {
-  padding: 20px;
+  border-left: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
   color: #555;
   font-weight: 400;
   font-size: 14px;
 }
 
 .plant__item--date {
-  padding: 20px;
+  border-left: 1px solid #ddd;
+  padding: 15px;
   color: #555;
   font-weight: 400;
   font-size: 12px;
