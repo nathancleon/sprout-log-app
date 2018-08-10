@@ -3,12 +3,14 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const plantsRoutes = require('./plants/plants.routes');
 const mongoose = require('mongoose');
+const userRoutes = require('./users/users.routes');
 
 let app = express();
 
 app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use('/plants', plantsRoutes);
+app.use('/auth', userRoutes);
 app.use('/', express.static('public'))
 //Database config
 //connect to the database (in mLab)
