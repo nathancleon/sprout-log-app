@@ -1,5 +1,193 @@
-.plant-item {
-  padding: 20px;
-  margin: 10px;
-  border: 1px solid black;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/****************************************** 
+  Navigation
+******************************************/
+
+.nav {
+  height: 80px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+}
+
+.nav__svg {
+  justify-content: flex-start;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin-top: 18px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.nav__list {
+  width: 100%;
+  margin-top: 35px; 
+  margin-right: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.nav__link {
+  padding-left: 80px;
+  font-size: 1rem;
+}
+
+.nav__link--highlight {
+  width: 20px;
+  position: relative;
+  color: rgb(14, 173, 27);
+  text-decoration: none;
+}
+
+.nav__link--highlight:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -8px;
+  background: rgb(14, 173, 27);
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.nav__link--highlight:hover:after,
+.nav__link--highlight:focus:after,
+.nav__link--highlight:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/****************************************** 
+  Jumbotron/Hero -- Register
+******************************************/
+
+#hero-background {
+  height: 45vw;
+}
+
+video {
+  position: relative;
+  overflow: hidden;
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+}
+
+.hero {
+  height: 45vw;
+  top: 80px;
+  right: 0;
+  position: absolute;
+  background: rgba(40, 40, 40, 0.75);
+  color: #f1f1f1;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero__svg {
+  height: 65px;
+  width: 65px;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.content__header {
+  max-width: 380px;
+  color: white;
+  font-size: 5rem;
+}
+
+.content__text {
+  padding-top: 1vw;
+  padding-bottom: 2vw;
+  max-width: 380px;
+  font-size: 1.25rem;
+}
+
+.btn--register {
+  width: 380px;
+  height: 60px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.btn--register:hover {
+  background-color: #fff;
+  color: rgb(14, 173, 27);
+  cursor: pointer;
+}
+
+/****************************************** 
+  App Description and Screenshots
+******************************************/
+
+.main__description {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  padding: 40px;
+}
+
+.description--text {
+  width: 40%;
+  align-self: center;
+}
+
+.description--placeholder {
+  width: 40%;
+}
+
+.footer {
+  margin-top: 100px;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  background-color: lightgrey;
+}
+
+.footer__list {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  text-decoration: none;
+}
+
+.footer__link {
+  text-align: center;
+  padding: 10px;
 }

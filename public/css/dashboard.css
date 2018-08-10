@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;  
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color:#f4f4f4;
+}
+
+/****************************************** 
+  Navigation
+******************************************/
+
+.nav {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(14, 173, 27);
+}
+
+.nav__svg {
+  justify-content: flex-start;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  margin-top: 8px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.nav__list {
+  width: 100%;
+  margin-top: 20px; 
+  margin-right: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.nav__link {
+  margin-left: 80px;
+  font-size: 1rem;
+}
+
+.nav__link--highlight {
+  width: 20px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__link--highlight:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -8px;
+  background: #fff;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.nav__link--highlight:hover:after,
+.nav__link--highlight:focus:after,
+.nav__link--highlight:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/****************************************** 
+  Sub-Navigation
+******************************************/
+
+.feature__links {
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 10px; 
+}
+
+.feature__links__list {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.feature__link {
+  height: 100%;
+  list-style: none;
+  margin-left: 54px;
+}
+
+.feature__link-ref {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+}
+
+.feature__link-ref:hover {
+  color: #0EAD1B;
+}
+
+.feature__link-ref:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -10px;
+  background: #0EAD1B;
+  height: 3px;
+  transition-property: width;
+  transition-duration: 0s;
+  transition-timing-function: ease-out;
+}
+
+.feature__link-ref:hover:after,
+.feature__link-ref:focus:after,
+.feature__link-ref:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/****************************************** 
+  Main Dashboard
+******************************************/
+
+.dashboard__main {
+  position: relative;
+  margin-top: 50px;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/****************************************** 
+  New Plant Form
+******************************************/
+
+.plant__form__container {
+  display: inline-block;
+  height: 500px;
+  width: 500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.plant__form {
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+}
+
+.plant__name, .plant__type, .plant__health {
+  color: #555;
+}
+
+.plant__name, .plant__type, .plant__health,
+.plant__name--input, .plant__type--input, .plant__health--input {
+  margin-bottom: 20px;
+}
+
+.plant__name--input, .plant__type--input, .plant__health--input {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.btn--submit {
+  margin-top: 40px;
+  height: 2.5rem;
+  background-color: #0EAD1B;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn--submit:hover {
+  background-color: transparent;
+  color: #0EAD1B;
+}
+
+/****************************************** 
+  Plant List Results
+******************************************/
+
+.user__plant__list {
+  height: 100%;
+  min-width: 1000px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px 50px 20px 50px;
+  margin-left: 55px;
+  overflow: auto;
+}
+
+.user__plants {
+  padding-top: 40px;
+  padding-left: 50px;
+  padding-right: 80px;
+  padding-bottom: 20px;
+}
+
+.list__titles {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title__header {
+  font-weight: 400;
+  color: #555;
+}
+
+.js__plants__results {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.js__plant__list {
+  border: 1px solid #ddd;
+}
+
+.plant__item--name {
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  text-align: left;
+  color: #0EAD1B;
+  cursor: pointer;
+}
+
+.plant__item--type {
+  border-left: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--health {
+  border-left: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--date {
+  border-left: 1px solid #ddd;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.plant__item--name:hover {
+  text-decoration: underline;
+}

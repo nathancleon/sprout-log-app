@@ -3,18 +3,99 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>SproutLog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/index.css" />
   </head>
   <body>
-    <div class="js-plant-list"></div>
 
-
+    <nav class="nav">
+        <svg class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z" fill="#0EAD1B"/>
+        </svg>
+        <ul class="nav__list">
+          <li class="nav__link"> <a href="register.html" class="nav__link--highlight">Sign Up</a></li>
+          <li class="nav__link"><a href="login.html" class="nav__link--highlight">Login</a></li>
+        </ul>
+    </nav>
+    <video autoplay muted loop id="hero-background">
+        <source src="./greenhousemovie.mp4" type="video/mp4">
+    </video>
+    <div class="hero">
+        <div class="hero__content">
+          <svg  class="hero__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z" fill="#ffffff"/>
+          </svg>
+          <h1 class="content__header">SproutLog</h1>
+          <p class="content__text">Track your plants and record their progress to keep them healthy, sunny, and growing.</p>
+          <form>
+            <button class="btn btn--register" type="submit" formaction="register.html">Register</button>
+          </form> 
+        </div>
+    </div>
+    <main class="main">
+      <div class="main__description">
+        <p class="description--text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Donec nec efficitur leo, quis interdum turpis. 
+          Nunc turpis tortor, volutpat nec accumsan at, dictum vitae nibh. 
+          Donec efficitur feugiat tincidunt. Curabitur dui nisl, blandit quis orci vitae, interdum dictum magna. 
+          Donec porta ipsum quam, tincidunt consequat lacus varius a. Etiam gravida tortor leo, ut maximus orci hendrerit ut. 
+          Donec id nisi at lectus gravida lacinia. Suspendisse sodales id sapien placerat finibus. Aenean nec elit vestibulum diam tempus varius. 
+          Curabitur in magna purus. Aliquam sed erat nec nunc vestibulum consequat. Sed lacinia, enim ut sodales facilisis, augue magna accumsan dolor, ut interdum libero nibh ac dui. 
+          Sed mattis volutpat turpis, a volutpat arcu facilisis vitae.
+        </br>
+        </br>
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquet ex nec justo sagittis iaculis. 
+          Suspendisse non euismod eros. Etiam a luctus velit. Mauris sed malesuada tellus. Nam bibendum ante vel risus consequat consequat. 
+          Nunc pulvinar magna massa, in rhoncus tellus tempus eget. 
+          Vestibulum vestibulum massa eget nulla consequat pharetra.
+          Ut convallis molestie commodo. In egestas orci sed consectetur sodales. 
+          In tincidunt quis diam scelerisque luctus. Curabitur ut nulla quis enim eleifend imperdiet. Nam id magna velit. 
+          Sed blandit tempus nunc tincidunt volutpat. Phasellus tempor, magna et facilisis aliquam, mi felis hendrerit diam, ut placerat elit sapien et enim. 
+          Mauris mollis augue id nisl pretium, quis venenatis ipsum dignissim. Donec molestie nibh dolor, tempor sagittis lorem convallis ac. 
+          Maecenas non odio tempus, tincidunt nisl at, vulputate ante.
+        </p>
+        <img class="description--placeholder" src="placeholder-main.png">
+      </div>
+      <div class="main__description">
+          <img class="description--placeholder" src="placeholder-main.png">
+          <p class="description--text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Donec nec efficitur leo, quis interdum turpis. 
+            Nunc turpis tortor, volutpat nec accumsan at, dictum vitae nibh. 
+            Donec efficitur feugiat tincidunt. Curabitur dui nisl, blandit quis orci vitae, interdum dictum magna. 
+            Donec porta ipsum quam, tincidunt consequat lacus varius a. Etiam gravida tortor leo, ut maximus orci hendrerit ut. 
+            Donec id nisi at lectus gravida lacinia. Suspendisse sodales id sapien placerat finibus. Aenean nec elit vestibulum diam tempus varius. 
+            Curabitur in magna purus. Aliquam sed erat nec nunc vestibulum consequat. Sed lacinia, enim ut sodales facilisis, augue magna accumsan dolor, ut interdum libero nibh ac dui. 
+            Sed mattis volutpat turpis, a volutpat arcu facilisis vitae.
+          </br>
+          </br>
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquet ex nec justo sagittis iaculis. 
+            Suspendisse non euismod eros. Etiam a luctus velit. Mauris sed malesuada tellus. Nam bibendum ante vel risus consequat consequat. 
+            Nunc pulvinar magna massa, in rhoncus tellus tempus eget. 
+            Vestibulum vestibulum massa eget nulla consequat pharetra.
+            Ut convallis molestie commodo. In egestas orci sed consectetur sodales. 
+            In tincidunt quis diam scelerisque luctus. Curabitur ut nulla quis enim eleifend imperdiet. Nam id magna velit. 
+            Sed blandit tempus nunc tincidunt volutpat. Phasellus tempor, magna et facilisis aliquam, mi felis hendrerit diam, ut placerat elit sapien et enim. 
+            Mauris mollis augue id nisl pretium, quis venenatis ipsum dignissim. Donec molestie nibh dolor, tempor sagittis lorem convallis ac. 
+            Maecenas non odio tempus, tincidunt nisl at, vulputate ante.
+          </p>
+        </div>
+    </main>
+    <footer class="footer">
+      <ul class="footer__list">
+        <li class="footer__link">Portfolio</li>
+        <li class="footer__link">GitHub</li>
+      </ul>
+    </footer>
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-    <script src="./javascript/main.js"></script>
+    <script src="./javascript/index.js"></script>
   </body>
 </html>

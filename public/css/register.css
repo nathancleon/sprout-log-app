@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color:#f4f4f4;
+}
+
+/****************************************** 
+  Navigation
+******************************************/
+
+.nav {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(14, 173, 27);
+}
+
+.nav__svg {
+  justify-content: flex-start;
+  position: relative;
+  width: 35px;
+  height: 35px;
+  margin-top: 8px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.nav__list {
+  width: 100%;
+  margin-top: 15px; 
+  margin-right: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.nav__link {
+  margin-left: 80px;
+  font-size: 1rem;
+}
+
+.nav__link--highlight {
+  width: 20px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__link--highlight:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -8px;
+  background: #fff;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.nav__link--highlight:hover:after,
+.nav__link--highlight:focus:after,
+.nav__link--highlight:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/****************************************** 
+  Register/Login Form
+******************************************/
+
+.main {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__svg {
+  min-height: 50px;
+  min-width: 50px;
+}
+
+.header__title {
+  font-weight: 400;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form__login {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 40px;
+}
+
+.form__user {
+  margin-bottom: 15px;
+}
+
+#user {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+.form__pass {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+#pass {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+}
+
+.btn--login {
+  margin-top: 25px;
+  width: 100%;
+  height: 4rem;
+  background-color: #0EAD1B;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn--login:hover {
+  background-color: transparent;
+  color: #0EAD1B;
+}
