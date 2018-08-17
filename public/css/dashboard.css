@@ -217,26 +217,17 @@ body {
   overflow: auto;
 }
 
-.user__plants {
-  padding-top: 40px;
-  padding-left: 50px;
-  padding-right: 80px;
-  padding-bottom: 20px;
-}
-
-.list__titles {
-  display: flex;
-  justify-content: space-around;
+.js__plants__results {
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
 }
 
 .title__header {
+  border: 1px solid #ddd;
   font-weight: 400;
   color: #555;
-}
-
-.js__plants__results {
-  border: 1px solid #ddd;
-  border-collapse: collapse;
+  padding: 15px;
 }
 
 .js__plant__list {
@@ -245,7 +236,6 @@ body {
 
 .plant__item--name {
   padding-left: 2.5%;
-  padding-right: 2.5%;
   text-align: left;
   color: #0EAD1B;
   cursor: pointer;
