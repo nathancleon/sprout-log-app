@@ -37,10 +37,12 @@ $('.btn--submit').click(function(event) {
 });
 
 function renderPlantItem(plant) {
+  let momentObj = moment(plant.created);
+  let momentDate = momentObj.format('MMM Do YYYY');
   return `<tr class="js__plant__list">
           <th class="plant__item--name">${plant.name}</th>
           <th class="plant__item--type">${plant.plantType}</th>
           <th class="plant__item--health">${plant.currentHealth}</th>
-          <th class="plant__item--date">${plant.created}</th>
+          <th class="plant__item--date">${momentDate}</th>
           </tr>`;
 }
