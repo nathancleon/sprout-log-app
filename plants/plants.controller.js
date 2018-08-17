@@ -7,15 +7,15 @@ exports.fetchAllPlants = function(req, res) {
       res.status(200).json({
         message: 'Retrieved all plants',
         data: plants
-      })
+      });
     })
     .catch((error) => {
       res.status(500).json({
         message: 'something happened',
         data: error
-      })
-    })
-}
+      });
+    });
+};
 
 exports.newPlant = function(req, res) {
   let newPlant = new PlantModel();
@@ -30,15 +30,15 @@ exports.newPlant = function(req, res) {
       res.status(200).json({
         message: 'Plant saved correctly',
         data: plant
-      })
+      });
     })
     .catch((error) => {
       res.status(500).json({
         message: 'something went wrong',
         data: error
-      })
-    })
-}
+      });
+    });
+};
 
 //delete plant
 exports.deletePlant = function(req, res) {
@@ -48,21 +48,21 @@ exports.deletePlant = function(req, res) {
       res.status(200).json({
         message: 'plant successfully deleted',
         data: plant
-      })
+      });
     })
     .catch((error) => {
       res.status(500).json({
         message: 'something did not work correctly',
         data: error
-      })
-    })
-}
+      });
+    });
+};
 
 exports.updatePlant = function (req, res) {
   if (!(req.params.id && req.body.id && req.params.id  === req.body.id)) {
     req.status(400).json({
       error: 'Request path id and req body id values must match'
-    })
+    });
   }
 
   const updated = {};
@@ -79,4 +79,4 @@ exports.updatePlant = function (req, res) {
     .catch(err => res.status(500).json({
       message: 'Something went terribly wrong'
     }));
-}
+};
