@@ -25,7 +25,7 @@
       </div>
     <main class="dashboard__main">
       <div class="plant__form__container">
-          <form class="plant__form">
+          <form class="plant__form" enctype="multipart/form-data">
             <label class="plant__name" for="name">Plant Name:</label>
             <input class="plant__name--input" type="text" id="name" name="name">
             <label class="plant__type" for="plantType">Plant Type:</label>
@@ -36,21 +36,22 @@
           </form>
         </div>
         <div class="user__plant__list">
-          <table class="user__plants" style="width:100%">
-            <tr class="list__titles">
-              <th class="title__header">Name</th>
-              <th class="title__header">Plant Type</th>
-              <th class="title__header">Current Health</th>
-              <th class="title__header">Date Created</th>
-            </tr>
-          </table>
-          <table class="js__plants__results" style="width:100%"></table>
+          <table class="js__plants__results" style="width:100%">
+            <th class="title__header">Name</th>
+            <th class="title__header">Plant Type</th>
+            <th class="title__header">Current Health</th>
+            <th class="title__header">Date Created</th></table>
         </div>
     </main>
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+    <script>
+      var now = moment()
+      console.log(now);
+    </script>
     <script src="./javascript/plants.js"></script>
   </body>
 </html>
