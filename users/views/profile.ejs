@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SproutLog Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/dashboard.css" />
+  </head>
+  <body>
+    <nav class="nav">
+        <svg  class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z" fill="#ffffff"/>
+        </svg>
+        <ul class="nav__list">
+          <li class="nav__link"> <a href="index.html" class="nav__link--highlight">Home</a></li>
+        </ul>
+    </nav>
+    <div class="feature__links">
+        <ul class="feature__links__list">
+          <li class="feature__link"><a class="feature__link-ref" href="dashboard.html">List</a></li>
+          <li class="feature__link"><a class="feature__link-ref" href="calendar.html">Calendar</a></li>
+        </ul>
+      </div>
+    <main class="dashboard__main">
+      <div class="plant__form__container">
+          <form class="plant__form" enctype="multipart/form-data">
+            <label class="plant__name" for="name">Plant Name:</label>
+            <input class="plant__name--input" type="text" id="name" name="name">
+            <label class="plant__type" for="plantType">Plant Type:</label>
+            <input class="plant__type--input" type="text" id="plantType" name="plantType">
+            <label class="plant__health" for="currentHealth">Current Health:</label>
+            <input class="plant__health--input" type="text" id="currentHealth" name="currentHealth">
+            <button class="btn--submit" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="user__plant__list">
+          <table class="js__plants__results" style="width:100%">
+            <th class="title__header">Name</th>
+            <th class="title__header">Plant Type</th>
+            <th class="title__header">Current Health</th>
+            <th class="title__header">Date Created</th></table>
+        </div>
+    </main>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+    <script src="./javascript/plants.js"></script>
+  </body>
+</html>
