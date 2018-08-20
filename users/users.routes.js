@@ -1,6 +1,6 @@
 const express = require('express');
 const authController = require('./auth.controller');
-
+const passport = require('passport');
 let router = express.Router();
 
 // router.post('/register', authController.registerUser);
@@ -30,7 +30,13 @@ router.get('/profile', isLoggedin, function(req, res) {
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
-})
+});
+
+router.post('/signup', passport.authenticate('local-signup', {
+  successRedirect: '/profile',
+  failureRedirect: '/signup',
+  failureFlash: true
+}));
 
 function isLoggedin(req, res, next) {
   
