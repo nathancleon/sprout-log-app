@@ -78,7 +78,7 @@ exports.loginUser = function(req, res) {
       email: user.email,
       id: user._id
     };
-    const token = jwt.sign(tokenObject, "123");
+    const token = jwt.sign(tokenObject, '123');
     res.status(200).json({
       message: 'user logged in correctly',
       data: {

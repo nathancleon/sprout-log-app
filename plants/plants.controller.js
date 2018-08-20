@@ -2,7 +2,9 @@ const PlantModel = require('./plants.models');
 
 exports.fetchAllPlants = function(req, res) {
   PlantModel
-    .find()
+    .find({
+      userID: req.user.id
+    })
     .then((plants) => {
       res.status(200).json({
         message: 'Retrieved all plants',
@@ -23,6 +25,7 @@ exports.newPlant = function(req, res) {
   newPlant.name = req.body.name;
   newPlant.plantType = req.body.plantType;
   newPlant.currentHealth = req.body.currentHealth;
+  newPlant.userID = req.user.id;
 
   newPlant
     .save()

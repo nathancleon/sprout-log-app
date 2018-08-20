@@ -1,6 +1,6 @@
 console.log('I am working');
 function getPlants() {
-  $.get('/plants/all', (plants) => {
+  $.get(`/plants/all/${localStorage.getItem('token')}`, (plants) => {
     plants.data.forEach((plant, index) => {
       $('.js__plants__results').append(renderPlantItem(plant));
     });
@@ -24,7 +24,7 @@ $('.btn--submit').click(function(event) {
   $.ajax({ 
     type: "POST", 
     contentType: 'application/json',
-    url:'./plants/new', 
+    url:`/plants/new/${localStorage.getItem('token')}`, 
     data: JSON.stringify(newPlantObject),
     success: function(data) {
       $('.js__plants__results').append(renderPlantItem(newPlantObject));
