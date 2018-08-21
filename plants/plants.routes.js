@@ -4,6 +4,8 @@ const middleware = require('../middleware');
 
 let router = express.Router();
 
+router.get('/all', plantsController.fetchAllPlants);
+
 router.get('/all/:token', middleware.verifyToken,  plantsController.fetchAllPlants);
 
 router.post('/new/:token', middleware.verifyToken,  plantsController.newPlant);

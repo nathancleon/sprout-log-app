@@ -186,10 +186,9 @@ body {
   border-bottom: 1px solid #ddd;
 }
 
-.btn--submit {
+.btn {
   margin-top: 40px;
   height: 2.5rem;
-  background-color: #0EAD1B;
   border: 1px solid #ddd;
   border-radius: 2px;
   font-size: 1rem;
@@ -197,9 +196,23 @@ body {
   cursor: pointer;
 }
 
+.btn--submit {
+  background-color: #0EAD1B;
+}
+
 .btn--submit:hover {
   background-color: transparent;
   color: #0EAD1B;
+}
+
+.btn--update {
+  display: none;
+  background-color: rgb(253, 135, 0);
+}
+
+.btn--update:hover {
+  background-color: transparent;
+  color: rgb(253, 135, 0);
 }
 
 /****************************************** 
@@ -232,6 +245,15 @@ body {
 
 .js__plant__list {
   border: 1px solid #ddd;
+}
+
+.plant__item--id {
+  border-right: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .plant__item--name {

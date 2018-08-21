@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use('/plants', plantsRoutes);
 app.use('/auth', userRoutes);
-app.use('/', express.static('public'))
+app.use('/', express.static('public'));
 //Database config
 //connect to the database (in mLab)
 mongoose.connect('mongodb://user:pass123@ds161262.mlab.com:61262/healthy-plantdb', { useNewUrlParser: true });
@@ -21,7 +21,7 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 //If it's an error I will console log 'Connection error' if not 'connected to a database'
 db.on('error', console.error.bind(console, 'Connection error:'));
-db.once('open', function () { console.log('Connected to a database') });
+db.once('open', function () { console.log('Connected to a database'); });
 
 app.listen(8080, () => {
   console.log('app running on port 8080');
