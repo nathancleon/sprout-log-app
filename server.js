@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const plantsRoutes = require('./plants/plants.routes');
 const mongoose = require('mongoose');
-const userRoutes = require('./users/users.routes');
 
 const passport = require('passport');
 const flash = require('connect-flash');
@@ -15,7 +14,7 @@ let app = express();
 app.use(bodyParser.json());
 app.use(morgan('common'));
 app.use('/plants', plantsRoutes);
-app.use('/auth', userRoutes);
+// app.use('/auth', userRoutes);
 app.use('/', express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser());
@@ -28,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./users/users.routes.js')(app, passport);
+require('./users/users.routes')(app, passport);
 
 require('./users/passport')(passport);
 

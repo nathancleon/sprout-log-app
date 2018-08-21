@@ -1,42 +1,44 @@
-const express = require('express');
-const authController = require('./auth.controller');
-const passport = require('passport');
-let router = express.Router();
 
-// router.post('/register', authController.registerUser);
+module.exports = function(app, passport) {
 
-// router.post('/login', authController.loginUser);
-
-router.get('/', function(req, res) {
-  res.render('index.ejs');
-});
-
-router.get('/login', function(req, res) {
-  res.render('login.ejs', { message: req.flash('loginMessage') });
-});
-
-router.get('/signup', function(req, res) {
-  
-  res.render('signup.ejs', { message: req.flash('signupMessage') });
-
-});
-
-router.get('/profile', isLoggedin, function(req, res) {
-  res.render('profile.js', {
-    user: req.user
+  app.get('/', function(req, res) {
+    res.render('index.ejs');
   });
-});
 
-router.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/');
-});
+  app.get('/login', function(req, res) {
+    res.render('login.ejs', { message: req.flash('loginMessage') });
+  });
 
-router.post('/signup', passport.authenticate('local-signup', {
-  successRedirect: '/profile',
-  failureRedirect: '/signup',
-  failureFlash: true
-}));
+  app.get('/signup', function(req, res) {
+    
+    res.render('signup.ejs', { message: req.flash('signupMessage') });
+
+  });
+
+  app.get('/profile', isLoggedin, function(req, res) {
+    res.render('profile.js', {
+      user: req.user
+    });
+  });
+
+  app.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
+
+  app.post('/signup', passport.authenticate('local-signup', {
+    successRedirect: '/profile',
+    failureRedirect: '/signup',
+    failureFlash: true
+  }));
+
+  app.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFlash: true
+  }));
+
+}
 
 function isLoggedin(req, res, next) {
   
@@ -45,5 +47,3 @@ function isLoggedin(req, res, next) {
 
   res.redirect('/');
 }
-
-module.exports = router;
