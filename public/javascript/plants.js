@@ -2,11 +2,8 @@ function getPlants() {
   $.get(`/plants/all/${localStorage.getItem('token')}`, (plants) => {
     plants.data.forEach((plant, index) => {
       $('.js__plants__results').append(renderPlantItem(plant));
-      for (i = 0; i < index.length; i++) {
-        console.log(plant._id);
-        updatePlant(plant);
-      }
     });
+    updateModal(plants)
   });
 }
 
@@ -39,31 +36,33 @@ $('.btn--submit').click(function(event) {
   });
 });
 
-function updatePlant(plant) {
-  $('#plant__item--id__input').on('change', function() {
-    if(this.checked) {
-      let value = $('#plant__item--id__input').val();
-      console.log(value);
+function updateModal(plant) {
+  $('.btn--edit').on('click', function() {
+      let id = $(this).attr('data-id');
+      console.log(id);
+
+      let name = $(this).parent().siblings('.plant__item--name').text();
+      let plantType = $(this).parent().siblings('.plant__item--type').text();
+      let currentHealth = $(this).parent().siblings('.plant__item--health').text();
+      
+      $('input[name=name]').val(name);
+      $('input[name=plantType]').val(plantType);
+      $('#currentHealth').val(currentHealth);
 
       $('.btn--submit').hide();
       $('.btn--update').show();
-    } else {
-      $('.btn--update').hide();
-      $('.btn--submit').show();
-    }
   });
 }
 
 function renderPlantItem(plant) {
   let momentObj = moment(plant.created);
   let momentDate = momentObj.format('MMM Do YYYY');
-  updatePlant(plant);
   return `<tr class="js__plant__list">
-          <th class="plant__item--id"><input type="checkbox" id="plant__item--id__input" name="plantID" value="${plant._id}"></th>
           <th class="plant__item--name">${plant.name}</th>
           <th class="plant__item--type">${plant.plantType}</th>
           <th class="plant__item--health">${plant.currentHealth}</th>
           <th class="plant__item--date">${momentDate}</th>
+          <th class="plant__item--id"><button class="btn--edit" type="button" data-id="${plant._id}">Edit</th>
           <th class="plant__item--date"><button class="btn--delete" type="button">Delete</button></th>
           </tr>`;
 }

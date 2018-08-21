@@ -248,7 +248,7 @@ body {
 }
 
 .plant__item--id {
-  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
   text-align: center;
   padding: 15px;
   color: #555;
