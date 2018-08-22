@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html lang="en">
 <html>
   <head>
     <meta charset="utf-8" />
@@ -27,11 +27,11 @@
             </svg>
             <h1 class="header__title">Login</h1>
           </div>
-        <form class="form__login">
+        <form class="form__login" action="/login" method="post">
           <label class="form__user" for="user">Username:</label>
-          <input id="user" type="text" placeholder="user">
+          <input id="user" type="text" placeholder="user" name="email">
           <label class="form__pass" for="pass">Password:</label>
-          <input id="pass" type="password" placeholder="password">
+          <input id="pass" type="password" placeholder="password" name="password">
           <button class="btn btn--login" type="submit">Login</button>
         </form>
       </div>

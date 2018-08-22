@@ -11,26 +11,6 @@ const session = require('express-session');
 
 let app = express();
 
-app.use(bodyParser.json());
-app.use(morgan('common'));
-app.use('/plants', plantsRoutes);
-// app.use('/auth', userRoutes);
-app.use('/', express.static('public'));
-app.use(cookieParser());
-app.use(bodyParser());
-
-
-app.set('views', './public/views');
-app.set('view engine', 'ejs'); //set up ejs for templating
-
-//required for passport ==================================================================
-app.use(session({ secret: 'iloveplantsmorethananythingever' }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-require('./users/users.routes')(app, passport);
-
 //Database config
 //connect to the database (in mLab)
 mongoose.connect('mongodb://user:pass123@ds161262.mlab.com:61262/healthy-plantdb', { useNewUrlParser: true });
@@ -41,6 +21,28 @@ let db = mongoose.connection;
 //If it's an error I will console log 'Connection error' if not 'connected to a database'
 db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', function () { console.log('Connected to a database'); });
+
+require('./users/passport')(passport);
+
+app.use(bodyParser.json());
+app.use(morgan('dev'));
+app.use('/plants', plantsRoutes);
+// app.use('/auth', userRoutes);
+app.use('/', express.static('public'));
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(flash());
+
+
+app.set('views', './public/views');
+app.set('view engine', 'ejs'); //set up ejs for templating
+
+//required for passport ==================================================================
+app.use(session({ secret: 'iloveplantsmorethananythingever' }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./users/users.routes')(app, passport);
 
 app.listen(8080, () => {
   console.log('app running on port 8080');

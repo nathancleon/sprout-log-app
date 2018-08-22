@@ -166,3 +166,8 @@ body {
   background-color: transparent;
   color: #0EAD1B;
 }
+
+.alert-danger {
+  visibility: visible;
+  color: red;
+}

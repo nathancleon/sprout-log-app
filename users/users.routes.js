@@ -1,49 +1,52 @@
-
 module.exports = function(app, passport) {
 
-  app.get('/', function(req, res) {
-    res.render('../public/views/index');
-  });
 
-  app.get('/login', function(req, res) {
-    res.render('login.ejs', { message: req.flash('loginMessage') });
-  });
+	app.get('/', function(req, res) {
+		res.render('index.ejs'); 
+	});
 
-  app.get('/signup', function(req, res) {
-    
-    res.render('signup.ejs', { message: req.flash('signupMessage') });
+	app.get('/login', function(req, res) {
 
-  });
+		res.render('login.ejs', { message: req.flash('loginMessage') });
+	});
 
-  app.get('/profile', isLoggedin, function(req, res) {
-    res.render('profile.js', {
-      user: req.user
-    });
-  });
+	// process the login form
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect : '/profile',
+		failureRedirect : '/login',
+		failureFlash : true
+	}));
 
-  app.get('/logout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-  });
 
-  app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/signup',
-    failureFlash: true
-  }));
+	app.get('/signup', function(req, res) {
+		res.render('signup.ejs', { message: req.flash('signupMessage') });
+	});
 
-  app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/profile',
-    failureRedirect: '/login',
-    failureFlash: true
-  }));
+	// process the signup form
+	app.post('/signup', passport.authenticate('local-signup', {
+		successRedirect : '/profile',
+		failureRedirect : '/signup', 
+		failureFlash : true 
+	}));
 
-}
+	app.get('/profile', isLoggedIn, function(req, res) {
+		res.render('profile.ejs', {
+			user : req.user 
+		});
+	});
 
-function isLoggedin(req, res, next) {
-  
-  if (req.isAuthenticated())
+	app.get('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+	});
+};
+
+
+function isLoggedIn(req, res, next) {
+  console.log(res);
+	if (req.isAuthenticated()){
     return next();
+  }
 
-  res.redirect('/');
+	res.redirect('/');
 }
