@@ -19,6 +19,8 @@ app.use('/', express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser());
 
+
+app.set('views', './public/views');
 app.set('view engine', 'ejs'); //set up ejs for templating
 
 //required for passport ==================================================================
@@ -28,8 +30,6 @@ app.use(passport.session());
 app.use(flash());
 
 require('./users/users.routes')(app, passport);
-
-require('./users/passport')(passport);
 
 //Database config
 //connect to the database (in mLab)
