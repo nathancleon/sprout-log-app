@@ -72,14 +72,14 @@ function updateModal(plant) {
           contentType: 'application/json',
           url:`/plants/one/${id}`, 
           data: JSON.stringify(updatedPlantObject),
-          success: function(data) {
-            let name = $(`tr[data-id="${data._id}"]`).find('.plant__item--name');
-            let plantType = $(`tr[data-id="${data._id}"]`).find('.plant__item--type');
-            let currentHealth = $(`tr[data-id="${data._id}"]`).find('.plant__item--health');
+          success: function(response) {
+            let name = $(`tr[data-id="${response._id}"]`).find('.plant__item--name');
+            let plantType = $(`tr[data-id="${response._id}"]`).find('.plant__item--type');
+            let currentHealth = $(`tr[data-id="${response._id}"]`).find('.plant__item--health');
 
-            name.text(updatedPlantObject.name);
-            plantType.text(updatedPlantObject.plantType);
-            currentHealth.text(updatedPlantObject.currentHealth);
+            name.text(response.name);
+            plantType.text(response.plantType);
+            currentHealth.text(response.currentHealth);
           },
           fail: function(id) {
             console.log(id);
