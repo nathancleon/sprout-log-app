@@ -31,8 +31,15 @@
             <label class="plant__type" for="plantType">Plant Type:</label>
             <input class="plant__type--input" type="text" id="plantType" name="plantType">
             <label class="plant__health" for="currentHealth">Current Health:</label>
-            <input class="plant__health--input" type="text" id="currentHealth" name="currentHealth">
-            <button class="btn--submit" type="submit">Submit</button>
+            <select name="currentHealth" class="plant__health--input" id="currentHealth">
+              <option value=""></option>
+              <option value="Healthy">Healthy</option>
+              <option value="Yellowing">Yellowing</option>
+              <option value="Browning">Browning</option>
+              <option value="Dying">Dying</option>
+            </select>
+            <button class="btn btn--submit" type="submit">Submit</button>
+            <button class="btn btn--update" type="button">Update</button>
           </form>
         </div>
         <div class="user__plant__list">
@@ -40,7 +47,11 @@
             <th class="title__header">Name</th>
             <th class="title__header">Plant Type</th>
             <th class="title__header">Current Health</th>
-            <th class="title__header">Date Created</th></table>
+            <th class="title__header">Date Created</th>
+            <th class="title__header">Edit</th>
+            <th class="title__header">Delete</th>
+          </table>
+          <tr class="js__plant__list"></tr>
         </div>
     </main>
     <script

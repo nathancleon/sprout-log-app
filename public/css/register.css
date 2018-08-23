@@ -115,7 +115,7 @@ body {
   margin-bottom: 20px;
 }
 
-.form__login {
+.form__register, .form__login {
   height: 300px;
   width: 400px;
   display: flex;
@@ -126,6 +126,7 @@ body {
   border-radius: 5px;
   padding: 40px;
 }
+
 
 .form__user {
   margin-bottom: 15px;

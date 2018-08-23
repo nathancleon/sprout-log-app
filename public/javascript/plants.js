@@ -1,9 +1,9 @@
-console.log('I am working');
 function getPlants() {
-  $.get('/plants/all', (plants) => {
+  $.get(`/plants/all/${localStorage.getItem('token')}`, (plants) => {
     plants.data.forEach((plant, index) => {
       $('.js__plants__results').append(renderPlantItem(plant));
     });
+    updateModal(plants)
   });
 }
 
@@ -24,7 +24,7 @@ $('.btn--submit').click(function(event) {
   $.ajax({ 
     type: "POST", 
     contentType: 'application/json',
-    url:'./plants/new', 
+    url:`/plants/new/${localStorage.getItem('token')}`, 
     data: JSON.stringify(newPlantObject),
     success: function(data) {
       $('.js__plants__results').append(renderPlantItem(newPlantObject));
@@ -36,6 +36,24 @@ $('.btn--submit').click(function(event) {
   });
 });
 
+function updateModal(plant) {
+  $('.btn--edit').on('click', function() {
+      let id = $(this).attr('data-id');
+      console.log(id);
+
+      let name = $(this).parent().siblings('.plant__item--name').text();
+      let plantType = $(this).parent().siblings('.plant__item--type').text();
+      let currentHealth = $(this).parent().siblings('.plant__item--health').text();
+      
+      $('input[name=name]').val(name);
+      $('input[name=plantType]').val(plantType);
+      $('#currentHealth').val(currentHealth);
+
+      $('.btn--submit').hide();
+      $('.btn--update').show();
+  });
+}
+
 function renderPlantItem(plant) {
   let momentObj = moment(plant.created);
   let momentDate = momentObj.format('MMM Do YYYY');
@@ -44,5 +62,7 @@ function renderPlantItem(plant) {
           <th class="plant__item--type">${plant.plantType}</th>
           <th class="plant__item--health">${plant.currentHealth}</th>
           <th class="plant__item--date">${momentDate}</th>
+          <th class="plant__item--id"><button class="btn--edit" type="button" data-id="${plant._id}">Edit</th>
+          <th class="plant__item--date"><button class="btn--delete" type="button">Delete</button></th>
           </tr>`;
 }
