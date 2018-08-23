@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+//TODO:
+//=====:update the schema to use new auth user id
+
 let plantSchema = new mongoose.Schema({ 
   name: String,
   plantType: String,

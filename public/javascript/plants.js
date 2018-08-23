@@ -1,5 +1,8 @@
+//TODO:
+//=====:update the routes to use new auth user id
+
 function getPlants() {
-  $.get(`/plants/all/${localStorage.getItem('token')}`, (plants) => {
+  $.get(`/plants/all/`, (plants) => {
     plants.data.forEach((plant, index) => {
       $('.js__plants__results').append(renderPlantItem(plant));
     });
@@ -24,7 +27,7 @@ $('.btn--submit').click(function(event) {
   $.ajax({ 
     type: "POST", 
     contentType: 'application/json',
-    url:`/plants/new/${localStorage.getItem('token')}`, 
+    url:`/plants/new/`, 
     data: JSON.stringify(newPlantObject),
     success: function(data) {
       $('.js__plants__results').append(renderPlantItem(newPlantObject));

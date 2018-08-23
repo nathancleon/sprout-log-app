@@ -1,5 +1,8 @@
 const PlantModel = require('./plants.models');
 
+//TODO:
+//=====:update the middleware to use new auth user id
+
 exports.fetchAllPlants = function(req, res) {
   PlantModel
     .find({
@@ -69,7 +72,7 @@ exports.updatePlant = function (req, res) {
   }
 
   const updated = {};
-  const updateableFields = ['name', 'currentHealth', 'created'];
+  const updateableFields = ['name', 'plantType', 'currentHealth', 'created'];
   updateableFields.forEach(field => {
     if(field in req.body) {
       updated[field] = req.body[field];

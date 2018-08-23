@@ -1,5 +1,7 @@
 module.exports = function(app, passport) {
 
+//TODO:
+//=====:update the routes to actually use flash to display errors
 
 	app.get('/', function(req, res) {
 		res.render('index.ejs'); 

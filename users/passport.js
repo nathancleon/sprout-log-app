@@ -2,6 +2,9 @@ let LocalStrategy = require('passport-local').Strategy;
 
 let User = require('../users/users.models');
 
+//TODO:
+//=====:update the config to actually use flash to display errors
+
 module.exports = function(passport) {
 
     passport.serializeUser(function(user, done) {
