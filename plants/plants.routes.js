@@ -6,9 +6,7 @@ let router = express.Router();
 //TODO:
 //=====:update the routes to use new auth user id
 
-router.get('/all', plantsController.fetchAllPlants);
-
-router.get('/all/', plantsController.fetchAllPlants);
+router.get('/all/:id', plantsController.fetchAllPlants);
 
 router.post('/new/', plantsController.newPlant);
 

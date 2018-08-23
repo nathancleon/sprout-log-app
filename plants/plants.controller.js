@@ -6,7 +6,7 @@ const PlantModel = require('./plants.models');
 exports.fetchAllPlants = function(req, res) {
   PlantModel
     .find({
-      userID: req.user.id
+      userID: req.params.id
     })
     .then((plants) => {
       res.status(200).json({
@@ -28,7 +28,7 @@ exports.newPlant = function(req, res) {
   newPlant.name = req.body.name;
   newPlant.plantType = req.body.plantType;
   newPlant.currentHealth = req.body.currentHealth;
-  newPlant.userID = req.user.id;
+  newPlant.userID = req.body.userID;
 
   newPlant
     .save()
@@ -65,8 +65,10 @@ exports.deletePlant = function(req, res) {
 };
 
 exports.updatePlant = function (req, res) {
-  if (!(req.params.id && req.body.id && req.params.id  === req.body.id)) {
-    req.status(400).json({
+  if (!(req.params.id && req.body._id && req.params.id  === req.body._id)) {
+    console.log(req.body, req.params.id);
+    
+    res.status(400).json({
       error: 'Request path id and req body id values must match'
     });
   }
@@ -81,7 +83,7 @@ exports.updatePlant = function (req, res) {
 
   PlantModel
     .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-    .then(updatedPlant => res.status(204).end())
+    .then(updatedPlant => res.json(updatedPlant))
     .catch(err => res.status(500).json({
       message: 'Something went terribly wrong'
     }));
