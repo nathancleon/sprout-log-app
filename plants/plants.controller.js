@@ -65,22 +65,15 @@ exports.deletePlant = function(req, res) {
 };
 
 exports.updatePlant = function (req, res) {
-  if (!(req.params.id && req.body._id && req.params.id  === req.body._id)) {
-    console.log(req.body, req.params.id);
-    
-    res.status(400).json({
-      error: 'Request path id and req body id values must match'
-    });
-  }
 
   const updated = {};
-  const updateableFields = ['name', 'plantType', 'currentHealth', 'created'];
+  const updateableFields = ['name', 'plantType', 'currentHealth'];
   updateableFields.forEach(field => {
     if(field in req.body) {
       updated[field] = req.body[field];
     }
   });
-
+  updated.lastUpdated = new Date();
   PlantModel
     .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
     .then(updatedPlant => res.json(updatedPlant))

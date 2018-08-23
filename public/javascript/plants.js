@@ -6,12 +6,8 @@ function getPlants() {
     plants.data.forEach((plant, index) => {
       $('.js__plants__results').append(renderPlantItem(plant));
     });
-    updateModal(plants);
-    deletePlantItem(plants);
   });
 }
-
-getPlants();
 
 $('.btn--submit').on('click', function(event) {
   event.preventDefault();
@@ -40,10 +36,9 @@ $('.btn--submit').on('click', function(event) {
   });
 });
 
-function updateModal(plant) {
-  $('.js__plants__results').on('click', '.btn--edit', function() {
+function updateModal() {
+  $('body').on('click', '.btn--edit', function() {
       let id = $(this).attr('data-id');
-
       let name = $(this).parent().siblings('.plant__item--name').text();
       let plantType = $(this).parent().siblings('.plant__item--type').text();
       let currentHealth = $(this).parent().siblings('.plant__item--health').text();
@@ -54,51 +49,53 @@ function updateModal(plant) {
 
       $('.btn--submit').hide();
       $('.btn--update').show();
-
-      $('.btn--update').on('click', function() {
-        let updatedPlantName = $("#name").val();
-        let updatedPlantType = $("#plantType").val();
-        let updatedCurrentHealth = $("#currentHealth").val();
-        let userID = $('.userID').val();
-        let updatedPlantObject = {
-          name: updatedPlantName,
-          plantType: updatedPlantType,
-          currentHealth: updatedCurrentHealth,
-          _id: id,
-          userID: userID
-        };
-        $.ajax({ 
-          type: "PUT", 
-          contentType: 'application/json',
-          url:`/plants/one/${id}`, 
-          data: JSON.stringify(updatedPlantObject),
-          success: function(response) {
-            let name = $(`tr[data-id="${response._id}"]`).find('.plant__item--name');
-            let plantType = $(`tr[data-id="${response._id}"]`).find('.plant__item--type');
-            let currentHealth = $(`tr[data-id="${response._id}"]`).find('.plant__item--health');
-
-            name.text(response.name);
-            plantType.text(response.plantType);
-            currentHealth.text(response.currentHealth);
-          },
-          fail: function(id) {
-            console.log(id);
-          }
-        });
-
-        $('#name').val('');
-        $('#plantType').val('');
-        $("#currentHealth").val('');
-
-        $('.btn--update').hide();
-        $('.btn--submit').show();
-      });
+      $('.btn--update').attr('data-id', id);
   });
 }
 
-function deletePlantItem(plant) {
+function updatePlant() {
+  $('body').on('click', '.btn--update', function() {
+    let updatedPlantName = $("#name").val();
+    let updatedPlantType = $("#plantType").val();
+    let updatedCurrentHealth = $("#currentHealth").val();
+    let id = $('.btn--update').attr('data-id');
+    let userID = $('.userID').val();
+    let updatedPlantObject = {
+      name: updatedPlantName,
+      plantType: updatedPlantType,
+      currentHealth: updatedCurrentHealth,
+    };
+    $.ajax({ 
+      type: "PUT", 
+      contentType: 'application/json',
+      url:`/plants/one/${id}`, 
+      data: JSON.stringify(updatedPlantObject),
+      success: function(response) {
+        let name = $(`tr[data-id="${response._id}"]`).find('.plant__item--name');
+        let plantType = $(`tr[data-id="${response._id}"]`).find('.plant__item--type');
+        let currentHealth = $(`tr[data-id="${response._id}"]`).find('.plant__item--health');
+
+        name.text(response.name);
+        plantType.text(response.plantType);
+        currentHealth.text(response.currentHealth);
+      },
+      fail: function(id) {
+        console.log(id);
+      }
+    });
+
+    $('#name').val('');
+    $('#plantType').val('');
+    $("#currentHealth").val('');
+
+    $('.btn--update').hide();
+    $('.btn--submit').show();
+  });
+}
+
+
+function deletePlantItem() {
   $('.js__plants__results').on('click', '.btn--delete',  function() {
-    console.log(plant);
     let id = $(this).attr('data-id');
     let row = $(this).parent().parent();
     console.log(id);
@@ -119,7 +116,7 @@ function deletePlantItem(plant) {
 }
 
 function renderPlantItem(plant) {
-  let momentObj = moment(plant.created);
+  let momentObj = moment(plant.lastUpdated);
   let momentDate = momentObj.format('MMM Do YYYY');
   return `<tr class="js__plant__list" data-id="${plant._id}">
           <td class="plant__item--name">${plant.name}</td>
@@ -130,3 +127,8 @@ function renderPlantItem(plant) {
           <td class="plant__item--date"><button class="btn--delete" type="button" data-id="${plant._id}">Delete</button></thd>
           </tr>`;
 }
+
+getPlants();
+updateModal();
+updatePlant();
+deletePlantItem();
