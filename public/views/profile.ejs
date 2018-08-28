@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SproutLog Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/dashboard.css" />
   </head>
   <body>
@@ -20,7 +21,7 @@
     <div class="feature__links">
         <ul class="feature__links__list">
           <li class="feature__link"><a class="feature__link-ref" href="./profile">List</a></li>
-          <li class="feature__link"><a class="feature__link-ref" href="#">Calendar</a></li>
+          <!-- <li class="feature__link"><a class="feature__link-ref" href="#">Calendar</a></li> -->
         </ul>
       </div>
     <main class="dashboard__main">
@@ -34,7 +35,7 @@
             <label class="plant__health" for="currentHealth">Current Health:</label>
             <select name="currentHealth" class="plant__health--input" id="currentHealth">
               <option value=""></option>
-              <option value="Healthy">Healthy</option>
+              <option class="plant--healthy" value="Healthy">Healthy</option>
               <option value="Yellowing">Yellowing</option>
               <option value="Browning">Browning</option>
               <option value="Dying">Dying</option>

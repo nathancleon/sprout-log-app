@@ -1,9 +1,7 @@
 const PlantModel = require('./plants.models');
 
-//TODO:
-//=====:update the middleware to use new auth user id
-
 exports.fetchAllPlants = function(req, res) {
+  //locate all plants associated with userID
   PlantModel
     .find({
       userID: req.params.id

@@ -28,10 +28,13 @@
             <h1 class="header__title">Login</h1>
           </div>
         <form class="form__login" action="/login" method="post">
-          <label class="form__user" for="user">Username:</label>
+          <label class="form__user" for="user">Email:</label>
           <input id="user" type="text" placeholder="user" name="email" value="user15@gmail.com">
           <label class="form__pass" for="pass">Password:</label>
           <input id="pass" type="password" placeholder="password" name="password" value="password">
+          <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+          <% } %>
           <button class="btn btn--login" type="submit">Login</button>
         </form>
       </div>
@@ -40,6 +43,5 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-    <script src="./javascript/login.js"></script>
   </body>
 </html>
