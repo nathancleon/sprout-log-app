@@ -259,7 +259,6 @@ body {
   padding-right: 3%;
   text-align: left;
   color: #0EAD1B;
-  cursor: pointer;
 }
 
 .plant__item--type {
@@ -303,7 +302,7 @@ body {
 }
 
 .btn--edit--icon {
-  margin-top: -2px;
+  margin-top: -3px;
   width: 24px;
 }
 
@@ -320,8 +319,4 @@ body {
 
 .btn--delete--icon {
   width: 20px;
-}
-
-.plant__item--name:hover {
-  text-decoration: underline;
 }

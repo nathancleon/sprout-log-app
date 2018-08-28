@@ -76,9 +76,11 @@ function updatePlant() {
         let name = $(`tr[data-id="${response._id}"]`).find('.plant__item--name');
         let plantType = $(`tr[data-id="${response._id}"]`).find('.plant__item--type');
         let currentHealth = $(`tr[data-id="${response._id}"]`).find('.plant__item--health');
+        let updatedDate = $(`tr[data-id="${response._id}"]`).find('.plant__item--date');
         name.text(response.name);
         plantType.text(response.plantType);
         currentHealth.text(response.currentHealth);
+        updatedDate.text(response.lastUpdated);
       },
       fail: function(id) {
         console.log(id);

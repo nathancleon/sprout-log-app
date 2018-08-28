@@ -4,7 +4,7 @@
   "description": "plant health tracking app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --exit"
   },
   "author": "",
   "license": "ISC",
@@ -26,5 +26,10 @@
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
   }
 }
