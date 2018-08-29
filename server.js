@@ -7,6 +7,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const {DBURL, PORT, PASSPORTSECRET} = require('./config');
 
 let app = express();
 
@@ -36,7 +37,7 @@ app.set('views', './public/views'); //location of ejs files
 app.set('view engine', 'ejs'); //set up ejs for templating
 
 //required for passport ==================================================================
-app.use(session({ secret: 'iloveplantsmorethananythingever' }));
+app.use(session({ secret: PASSPORTSECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -45,14 +46,14 @@ require('./users/users.routes')(app, passport);
 
 let server;
 
-function runServer(dbString) {
+function runServer(dbString, port) {
   return new Promise((resolve, reject) => {
     mongoose.connect(dbString, { useNewUrlParser: true }, (error) => {
       if (error) {
         return reject(error);
       }
-      server = app.listen(8080, () => {
-        console.log('app is running on port 8080');
+      server = app.listen(port, () => {
+        console.log(`app is running on port ${port}`);
         resolve();
       })
       .on('error', (error) => {
@@ -77,8 +78,10 @@ function closeServer() {
   });
 }
 
-runServer('mongodb://user:pass123@ds161262.mlab.com:61262/healthy-plantdb').catch((error) => {
-  console.log(error);
-});
+if(require.main === module) {
+  runServer(DBURL, PORT).catch((error) => {
+    console.log(error);
+  });
+}
 
 module.exports = {app, runServer, closeServer};

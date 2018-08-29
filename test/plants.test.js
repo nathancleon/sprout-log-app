@@ -3,6 +3,7 @@ const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const mongoose = require('mongoose');
 const {app, runServer, closeServer} = require('../server.js');
+const {DBTESTURL, TESTPORT} = require('../config');
 const expect = chai.expect;
 
 // TODO: make config file for server and keys
@@ -13,27 +14,47 @@ const expect = chai.expect;
 
 chai.use(chaiHTTP);
 
+let user;
+
 function createTestUser() {
-  return chai.request(app)
-  .post('/signup')
-  .send({
-    email: 'test@test.com',
-    password: 'password123'
-  })
-  .then((res) => {
-    console.log(res);
+  console.log('test inside createTestUser');
+  return new Promise((resolve, reject) => {
+    console.log('test inside promise createuser');
+    chai.request(app)
+    .post('/plants/new')
+    .send({
+      email: 'test@test.com',
+      password: 'password123'
+    })
+    .then((res) => {
+      console.log('user created successfully');
+      resolve();
+    })
+    .catch((err) => {
+      console.log(err);
+      reject();
+    });
   });
 }
 
 function loginUser() {
-  return chai.request(app)
-  .post('/login')
-  .send({
-    email: 'test@test.com',
-    password: 'password123'
-  })
-  .then((res) => {
-    console.log(res);
+  console.log('login user');
+  return new Promise((resolve, reject) => {
+    console.log('login user2');
+    chai.request(app)
+    .post('/login')
+    .send({
+      email: 'test@test.com',
+      password: 'password123'
+    })
+    .then((res) => {
+      console.log(res);
+      resolve();
+    })
+    .catch((err) => {
+      console.log(err);
+      reject();
+    });
   });
 }
 
@@ -51,14 +72,23 @@ function cleanDB() {
 
 describe('plants-tests', () => {
   before(() => {
-    runServer('mongodb://user:pass123@ds163680.mlab.com:63680/healthy-plant-testdb');
-    createTestUser()
+    console.log('this is starting before function');
+    runServer(DBTESTURL, TESTPORT)
     .then(() => {
-      loginUser();
+      console.log('server loaded, starting createTestUser');
+      createTestUser()
+      .then(() => {
+        console.log('user created, starting loginUser');
+        loginUser()
+        .then((res) => {
+          console.log(res);
+          done();
+        })
+      })
+      .catch((error) => {
+        reject(error);
+      });
     })
-    .catch((error) => {
-      reject(error);
-    });
   });
   after(() => {
     cleanDB();
@@ -78,6 +108,11 @@ describe('plants-tests', () => {
     .catch((error) => {
       reject(error);
     });
+  });
+  it('should get all the plants for this user', () => {
+    return chai.request(app)
+    .get('/plants/')
+    .send()
   });
 });
 
