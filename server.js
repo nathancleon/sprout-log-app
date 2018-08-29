@@ -44,7 +44,7 @@ function runServer(dbString, port) {
       if (error) {
         return reject(error);
       }
-      server = app.listen(process.env.PORT || port, () => {
+      server = app.listen(port, () => {
         console.log(`app is running on port ${port}`);
         resolve();
       })

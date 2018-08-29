@@ -77,11 +77,11 @@ function updatePlant() {
         let plantType = $(`tr[data-id="${response._id}"]`).find('.plant__item--type');
         let currentHealth = $(`tr[data-id="${response._id}"]`).find('.plant__item--health');
         let updatedDate = $(`tr[data-id="${response._id}"]`).find('.plant__item--date');
+        let updatedMomentObj = moment(response.lastUpdated);
+        let momentUpdatedDate = updatedMomentObj.format('ddd, MMM Do');
         name.text(response.name);
         plantType.text(response.plantType);
         currentHealth.text(response.currentHealth);
-        let updatedMomentObj = moment(response.lastUpdated);
-        let momentUpdatedDate = updatedMomentObj.format('ddd, MMM Do');
         updatedDate.text(momentUpdatedDate);
       },
       fail: function(id) {
