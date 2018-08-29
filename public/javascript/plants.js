@@ -80,7 +80,9 @@ function updatePlant() {
         name.text(response.name);
         plantType.text(response.plantType);
         currentHealth.text(response.currentHealth);
-        updatedDate.text(response.lastUpdated);
+        let updatedMomentObj = moment(response.lastUpdated);
+        let momentUpdatedDate = updatedMomentObj.format('ddd, MMM Do');
+        updatedDate.text(momentUpdatedDate);
       },
       fail: function(id) {
         console.log(id);

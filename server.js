@@ -7,20 +7,12 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const {DBURL, PORT, PASSPORTSECRET} = require('./config');
+const {DB_URL, PORT, PASSPORT_SECRET} = require('./config');
 
 let app = express();
 
 //Database config
-//connect to the database (in mLab)
-// mongoose.connect('mongodb://user:pass123@ds161262.mlab.com:61262/healthy-plantdb', { useNewUrlParser: true });
-//Tell mongoose that we will use promises (is to avoid just a warning)
 mongoose.Promise = global.Promise;
-//Get the connection
-// let db = mongoose.connection;
-//If there is an error I will console log 'Connection error' if not 'connected to a database'
-// db.on('error', console.error.bind(console, 'Connection error:'));
-// db.once('open', function () { console.log('Connected to a database'); });
 
 //require the passport config file
 require('./users/passport')(passport);
@@ -37,7 +29,7 @@ app.set('views', './public/views'); //location of ejs files
 app.set('view engine', 'ejs'); //set up ejs for templating
 
 //required for passport ==================================================================
-app.use(session({ secret: PASSPORTSECRET }));
+app.use(session({ secret: PASSPORT_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -79,7 +71,7 @@ function closeServer() {
 }
 
 if(require.main === module) {
-  runServer(DBURL, PORT).catch((error) => {
+  runServer(DB_URL, PORT).catch((error) => {
     console.log(error);
   });
 }

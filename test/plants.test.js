@@ -3,7 +3,7 @@ const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const mongoose = require('mongoose');
 const {app, runServer, closeServer} = require('../server.js');
-const {DBTESTURL, TESTPORT} = require('../config');
+const {DB_TEST_URL, TEST_PORT} = require('../config');
 const expect = chai.expect;
 
 // TODO: make config file for server and keys
@@ -73,7 +73,7 @@ function cleanDB() {
 describe('plants-tests', () => {
   before(() => {
     console.log('this is starting before function');
-    runServer(DBTESTURL, TESTPORT)
+    runServer(DB_TEST_URL, TEST_PORT)
     .then(() => {
       console.log('server loaded, starting createTestUser');
       createTestUser()
