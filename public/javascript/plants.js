@@ -1,7 +1,7 @@
 //load plants associated with userID
 function getPlants() {
   $.get(`/plants/all/` + $('.userID').val(), (plants) => {
-    plants.data.forEach((plant, index) => {
+    plants.data.forEach((plant) => {
       $('.js__plants__results').append(renderPlantItem(plant));
     });
   });
@@ -33,7 +33,15 @@ function newPlant() {
         console.log(data);
       }
     });
+    $('.plant__form__container').removeClass('js__modal--active');
   });
+}
+
+function modalNewPlant() {
+  $('.btn--new__plant').on('click', function(event) {
+    event.preventDefault();
+    $('.plant__form__container').addClass('js__modal--active');
+  })
 }
 
 //update text in form when edit button is clicked
@@ -48,6 +56,8 @@ function updateForm() {
       $('input[name=name]').val(name);
       $('input[name=plantType]').val(plantType);
       $('#currentHealth').val(currentHealth);
+
+      $('.plant__form__container').addClass('js__modal--active');
 
       $('.btn--submit').hide();
       $('.btn--update').show();
@@ -93,6 +103,7 @@ function updatePlant() {
     $('#plantType').val('');
     $("#currentHealth").val('');
 
+    $('.plant__form__container').removeClass('js__modal--active');
     $('.btn--update').hide();
     $('.btn--submit').show();
   });
@@ -151,3 +162,4 @@ newPlant();
 updateForm();
 updatePlant();
 deletePlantItem();
+modalNewPlant();

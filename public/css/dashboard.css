@@ -32,8 +32,10 @@ body {
 .nav__svg {
   justify-content: flex-start;
   position: relative;
-  width: 35px;
-  height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  max-width: 35px;
+  max-height: 35px;
   margin-top: 8px;
   margin-left: 60px;
   cursor: pointer;
@@ -226,6 +228,24 @@ body {
   padding: 20px 50px 20px 50px;
   margin-left: 55px;
   overflow: auto;
+  z-index: 1;
+}
+
+.btn--new__plant {
+  display: none;
+  width: 50px;
+  height: 24px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  background-color: #0EAD1B;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn--new__plant:hover {
+  background-color: transparent;
+  color: #0EAD1B;
 }
 
 .js__plants__results {
@@ -319,4 +339,142 @@ body {
 
 .btn--delete--icon {
   width: 20px;
+}
+
+@media only screen and (max-width: 1080px) {
+  .btn--new__plant {
+    display: block;
+  }
+
+  .plant__form__container {
+    top: 0;
+    left: auto;
+    display: none;
+  }
+
+  .user__plant__list {
+    height: 100%;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .js__modal--active {
+    display: flex;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 2000;
+    box-shadow: 0 40px 100px 1000px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media only screen and (max-width: 610px) {
+
+  .plant__form__container {
+    top: 0;
+    left: auto;
+    display: none;
+    height: 400px;
+    min-width: 200px;
+  }
+
+  .js__modal--active {
+    display: flex;
+    position: absolute;
+    z-index: 2000;
+    box-shadow: 0 40px 100px 1000px rgba(0, 0, 0, 0.3);
+  }
+
+  .plant__form {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+  }
+  
+  .plant__name, .plant__type, .plant__health {
+    color: #555;
+  }
+  
+  .plant__name, .plant__type, .plant__health,
+  .plant__name--input, .plant__type--input, .plant__health--input {
+    margin-bottom: 20px;
+  }
+  
+  .plant__name--input, .plant__type--input, .plant__health--input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .btn {
+    margin-top: 5px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+  }  
+
+  .user__plant__list {
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .js__plants__results {
+    margin-top: 5px;
+  }
+  
+  .title__header {
+    font-size: 10px;
+    padding: 2px;
+  }
+  
+  .js__plant__list {
+    border: 1px solid #ddd;
+  }
+  
+  .plant__item--id {
+    padding: 2px;
+    font-size: 8px;
+  }
+  
+  .plant__item--name {
+    font-size: 10px;
+    padding: 5px;
+  }
+  
+  .plant__item--type {
+    font-size: 10px;
+    padding: 2px;
+  }
+  
+  .plant__item--health {
+    font-size: 10px;
+    padding: 2px;
+  }
+  
+  .plant__item--date {
+    font-size: 10px;
+    padding: 2px;
+    font-size: 8px;
+  }
+  
+  .btn--edit {
+    cursor: pointer;
+  }
+  
+  .btn--edit--icon {
+    padding-top: 2px;
+    width: 18px;
+  }
+  
+  .btn--delete {
+    cursor: pointer;
+  }
+  
+  .btn--delete--icon {
+    width: 12px;
+  }
 }
