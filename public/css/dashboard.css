@@ -323,7 +323,7 @@ body {
 
 .btn--edit--icon {
   margin-top: -3px;
-  width: 24px;
+  width: 25px;
 }
 
 .plant__item--delete {
@@ -340,6 +340,10 @@ body {
 .btn--delete--icon {
   width: 20px;
 }
+
+/****************************************** 
+  Media Queries
+******************************************/
 
 @media only screen and (max-width: 1080px) {
   .btn--new__plant {
@@ -448,6 +452,7 @@ body {
   .plant__item--type {
     font-size: 10px;
     padding: 2px;
+    text-align: center;
   }
   
   .plant__item--health {
@@ -475,6 +480,6 @@ body {
   }
   
   .btn--delete--icon {
-    width: 12px;
+    width: 15px;
   }
 }

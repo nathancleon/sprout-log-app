@@ -41,7 +41,7 @@ function modalNewPlant() {
   $('.btn--new__plant').on('click', function(event) {
     event.preventDefault();
     $('.plant__form__container').addClass('js__modal--active');
-  })
+  });
 }
 
 //update text in form when edit button is clicked
