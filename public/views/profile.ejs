@@ -1,14 +1,15 @@
-<!DOCTYPE html lang="en">
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SproutLog Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/dashboard.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/profile.css" />
   </head>
   <body>
+    <div class="overlay"></div>
     <nav class="nav">
       <svg  class="nav__svg" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -18,15 +19,18 @@
         <li class="nav__link"> <a href="/" class="nav__link--highlight">Home</a></li>
       </ul>
     </nav>
-    <div class="feature__links">
+    <!-- <div class="feature__links">
         <ul class="feature__links__list">
           <li class="feature__link"><a class="feature__link-ref" href="./profile">List</a></li>
-          <!-- <li class="feature__link"><a class="feature__link-ref" href="#">Calendar</a></li> -->
+          <li class="feature__link"><a class="feature__link-ref" href="#">Calendar</a></li>
         </ul>
-      </div>
+    </div> -->
     <main class="dashboard__main">
       <input type="hidden" class="userID" value="<%= user._id %>">
       <div class="plant__form__container">
+          <svg class="btn--form__exit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" fill="#a5a5a5"/>
+          </svg>
           <form class="plant__form" enctype="multipart/form-data">
             <label class="plant__name" for="name">Plant Name:</label>
             <input class="plant__name--input" type="text" id="name" name="name">

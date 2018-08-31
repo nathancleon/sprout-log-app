@@ -33,7 +33,6 @@ function newPlant() {
         console.log(data);
       }
     });
-    $('.plant__form__container').removeClass('js__modal--active');
   });
 }
 
@@ -41,6 +40,21 @@ function modalNewPlant() {
   $('.btn--new__plant').on('click', function(event) {
     event.preventDefault();
     $('.plant__form__container').addClass('js__modal--active');
+    $('.overlay').css('display', 'block');
+  });
+}
+
+function closeModal() {
+  $('.overlay').on('click', function() {
+    if($('.js__modal--active').length > 0) {
+      $('.plant__form__container').removeClass('js__modal--active');
+      $('.overlay').css('display', 'none');
+    }
+  });
+  $('.btn--form__exit').on('click', function(event) {
+    event.preventDefault();
+    $('.plant__form__container').removeClass('js__modal--active');
+    $('.overlay').css('display', 'none');
   });
 }
 
@@ -88,7 +102,8 @@ function updatePlant() {
         let currentHealth = $(`tr[data-id="${response._id}"]`).find('.plant__item--health');
         let updatedDate = $(`tr[data-id="${response._id}"]`).find('.plant__item--date');
         let updatedMomentObj = moment(response.lastUpdated);
-        let momentUpdatedDate = updatedMomentObj.format('ddd, MMM Do');
+        let momentUpdatedDate = updatedMomentObj.fromNow();
+        
         name.text(response.name);
         plantType.text(response.plantType);
         currentHealth.text(response.currentHealth);
@@ -103,7 +118,6 @@ function updatePlant() {
     $('#plantType').val('');
     $("#currentHealth").val('');
 
-    $('.plant__form__container').removeClass('js__modal--active');
     $('.btn--update').hide();
     $('.btn--submit').show();
   });
@@ -114,7 +128,6 @@ function deletePlantItem() {
   $('.js__plants__results').on('click', '.btn--delete',  function() {
     let id = $(this).attr('data-id');
     let row = $(this).parent().parent();
-    console.log(id);
 
     $.ajax({
       url: `/plants/one/${id}`,
@@ -134,8 +147,8 @@ function deletePlantItem() {
 //render plants on the page in the table when function is called
 function renderPlantItem(plant) {
   let momentObj = moment(plant.lastUpdated);
-  let momentDate = momentObj.format('ddd, MMM Do');
-  return `<tr class="js__plant__list" data-id="${plant._id}">
+  let momentDate = momentObj.fromNow();
+  return `<tr class="js__plant__list" data-id="${plant._id}" aria-live="assertive">
           <td class="plant__item--name">${plant.name}</td>
           <td class="plant__item--type">${plant.plantType}</td>
           <td class="plant__item--health">${plant.currentHealth}</td>
@@ -163,3 +176,4 @@ updateForm();
 updatePlant();
 deletePlantItem();
 modalNewPlant();
+closeModal();

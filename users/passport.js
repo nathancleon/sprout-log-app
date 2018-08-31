@@ -2,9 +2,6 @@ let LocalStrategy = require('passport-local').Strategy;
 
 let User = require('../users/users.models');
 
-//TODO:
-//=====:update the config to actually use flash to display errors
-
 module.exports = function(passport) {
 
     passport.serializeUser(function(user, done) {
@@ -60,8 +57,7 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true 
     },
-    function(req, email, password, done) { 
-        console.log(req);
+    function(req, email, password, done) {
         //check if user exists
         User.findOne({ 'local.email' :  email }, function(err, user) {
             
