@@ -26,12 +26,12 @@ html {
 .nav__svg {
   justify-content: flex-start;
   position: relative;
-  min-width: 45px;
-  min-height: 45px;
-  max-width: 45px;
-  max-height: 45px;
-  margin-top: 18px;
-  margin-left: 50px;
+  min-width: 35px;
+  min-height: 35px;
+  max-width: 35px;
+  max-height: 35px;
+  margin-top: 25px;
+  margin-left: 5vw;
   cursor: pointer;
 }
 
@@ -222,13 +222,6 @@ video {
 }
 
 @media only screen and (max-width: 850px) {
-
-  .nav__svg {
-    max-width: 45px;
-    max-height: 45px;
-    margin-top: 18px;
-    margin-left: 40px;
-  }
   
   .nav__link {
     width: 60px;
