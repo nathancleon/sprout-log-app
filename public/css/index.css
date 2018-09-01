@@ -54,7 +54,7 @@ html {
 .nav__link--highlight {
   width: 40px;
   position: relative;
-  color: rgb(14, 173, 27);
+  color: #0EAD1B;
   text-decoration: none;
 }
 
@@ -65,7 +65,7 @@ html {
   right: 0;
   width: 0;
   bottom: -8px;
-  background: rgb(14, 173, 27);
+  background: #0EAD1B;
   height: 2px;
   transition-property: width;
   transition-duration: 0.2s;
@@ -145,7 +145,7 @@ video {
 
 .btn--register:hover {
   background-color: #fff;
-  color: rgb(14, 173, 27);
+  color: #0EAD1B;
   cursor: pointer;
 }
 
@@ -188,7 +188,20 @@ video {
   height: 55vh;
 }
 
+/****************************************** 
+  Media Queries
+******************************************/
+
 @media only screen and (max-width: 1350px) {
+
+  .nav__link--highlight:hover {
+    color: rgb(21, 230, 38);
+  }
+
+  .nav__link--highlight:after {
+    display: none;
+  }
+
   main {
     flex-direction: column;
   }
