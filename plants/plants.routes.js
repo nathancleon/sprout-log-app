@@ -3,9 +3,12 @@ const plantsController = require('./plants.controller');
 
 let router = express.Router();
 
-router.get('/all/', plantsController.fetchAllPlants);
+//TODO:
+//=====:update the routes to use new auth user id
 
-router.post('/new', plantsController.newPlant);
+router.get('/all/:id', plantsController.fetchAllPlants);
+
+router.post('/new/', plantsController.newPlant);
 
 router.put('/one/:id', plantsController.updatePlant);
 

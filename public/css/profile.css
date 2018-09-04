@@ -1,0 +1,516 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;  
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color:#f4f4f4;
+}
+
+/****************************************** 
+  Navigation
+******************************************/
+
+.nav {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(14, 173, 27);
+}
+
+.nav__svg {
+  justify-content: flex-start;
+  position: relative;
+  min-width: 35px;
+  min-height: 35px;
+  max-width: 35px;
+  max-height: 35px;
+  margin-top: 8px;
+  margin-left: 60px;
+  cursor: pointer;
+}
+
+.nav__list {
+  width: 100%;
+  margin-top: 20px; 
+  margin-right: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.nav__link {
+  margin-left: 80px;
+  font-size: 1rem;
+}
+
+.nav__link--highlight {
+  width: 20px;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__link--highlight:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 0;
+  bottom: -8px;
+  background: #fff;
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+.nav__link--highlight:hover:after,
+.nav__link--highlight:focus:after,
+.nav__link--highlight:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/****************************************** 
+  Sub-Navigation
+******************************************/
+/* 
+.feature__links {
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 10px; 
+}
+
+.feature__links__list {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.feature__link {
+  height: 100%;
+  list-style: none;
+  margin-left: 54px;
+}
+
+.feature__link-ref {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+}
+
+.feature__link-ref:hover {
+  color: #0EAD1B;
+}
+
+.feature__link-ref:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: auto;
+  width: 100%;
+  bottom: -10px;
+  background: #0EAD1B;
+  height: 3px;
+} */
+
+/* .feature__link-ref:hover:after,
+.feature__link-ref:focus:after,
+.feature__link-ref:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+} */
+
+/****************************************** 
+  Main Dashboard
+******************************************/
+
+.dashboard__main {
+  position: relative;
+  margin-top: 50px;
+  height: 80%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/****************************************** 
+  New Plant Form
+******************************************/
+
+.plant__form__container {
+  display: inline-block;
+  height: 450px;
+  min-width: 300px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn--form__exit {
+  display: none;
+}
+
+.plant__form {
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+}
+
+.plant__name, .plant__type, .plant__health {
+  color: #555;
+}
+
+.plant__name, .plant__type, .plant__health,
+.plant__name--input, .plant__type--input, .plant__health--input {
+  margin-bottom: 20px;
+}
+
+.plant__name--input, .plant__type--input, .plant__health--input {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.btn {
+  margin-top: 40px;
+  height: 2.5rem;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn--submit {
+  background-color: #0EAD1B;
+}
+
+.btn--submit:hover {
+  background-color: transparent;
+  color: #0EAD1B;
+}
+
+.btn--update {
+  display: none;
+  background-color: rgb(253, 135, 0);
+}
+
+.btn--update:hover {
+  background-color: transparent;
+  color: rgb(253, 135, 0);
+}
+
+/****************************************** 
+  Plant List Results
+******************************************/
+
+.user__plant__list {
+  height: 100%;
+  width: 60%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px 50px 20px 50px;
+  margin-left: 55px;
+  overflow: auto;
+  z-index: 1;
+}
+
+.btn--new__plant {
+  display: none;
+  width: 50px;
+  height: 24px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  background-color: #0EAD1B;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn--new__plant:hover {
+  background-color: transparent;
+  color: #0EAD1B;
+}
+
+.js__plants__results {
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.title__header {
+  border: 1px solid #ddd;
+  font-weight: 400;
+  color: #555;
+  padding: 15px;
+}
+
+.js__plant__list {
+  border: 1px solid #ddd;
+}
+
+.plant__item--id {
+  border-left: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--name {
+  padding-left: 2.5%;
+  padding-right: 3%;
+  text-align: left;
+  color: #0EAD1B;
+}
+
+.plant__item--type {
+  border-left: 1px solid #ddd;
+  text-align: left;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--health {
+  border-left: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.plant__item--date {
+  border-left: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.plant__item--edit {
+  border-left: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #555;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.btn--edit {
+  cursor: pointer;
+}
+
+.btn--edit--icon {
+  margin-top: -3px;
+  width: 25px;
+}
+
+.plant__item--delete {
+  border-left: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  color: #555;
+}
+
+.btn--delete {
+  cursor: pointer;
+}
+
+.btn--delete--icon {
+  width: 20px;
+}
+
+/****************************************** 
+  Media Queries
+******************************************/
+
+@media only screen and (max-width: 1080px) {
+  .btn--new__plant {
+    display: block;
+  }
+
+  .plant__form__container {
+    top: 0;
+    left: auto;
+    display: none;
+  }
+
+  .btn--form__exit {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 15px;
+    cursor: pointer;
+  }
+
+  .user__plant__list {
+    height: 100%;
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1900;
+  }
+
+  .js__modal--active {
+    display: flex;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 2000;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+
+  .plant__form__container {
+    top: 0;
+    left: auto;
+    display: none;
+    height: 400px;
+    min-width: 200px;
+  }
+
+  .js__modal--active {
+    display: flex;
+    position: absolute;
+    z-index: 2000;
+    box-shadow: 0 40px 100px 1000px rgba(0, 0, 0, 0.3);
+  }
+
+  .plant__form {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+  }
+  
+  .plant__name, .plant__type, .plant__health {
+    color: #555;
+  }
+  
+  .plant__name, .plant__type, .plant__health,
+  .plant__name--input, .plant__type--input, .plant__health--input {
+    margin-bottom: 20px;
+  }
+  
+  .plant__name--input, .plant__type--input, .plant__health--input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .btn {
+    margin-top: 5px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+  }  
+
+  .user__plant__list {
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .js__plants__results {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+  
+  .title__header {
+    font-size: 10px;
+    padding: 2px;
+  }
+  
+  .js__plant__list {
+    border: 1px solid #ddd;
+  }
+  
+  .plant__item--id {
+    padding: 2px;
+    font-size: 8px;
+  }
+  
+  .plant__item--name {
+    font-size: 10px;
+    padding: 5px;
+  }
+  
+  .plant__item--type {
+    font-size: 10px;
+    padding: 2px;
+    text-align: center;
+  }
+  
+  .plant__item--health {
+    font-size: 10px;
+    padding: 2px;
+  }
+  
+  .plant__item--date {
+    font-size: 10px;
+    padding: 2px;
+    font-size: 8px;
+  }
+  
+  .btn--edit {
+    cursor: pointer;
+  }
+  
+  .btn--edit--icon {
+    padding-top: 2px;
+    width: 18px;
+  }
+  
+  .btn--delete {
+    cursor: pointer;
+  }
+  
+  .btn--delete--icon {
+    width: 15px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .js__plants__results {
+    margin-left: -5px;
+  }
+
+}
