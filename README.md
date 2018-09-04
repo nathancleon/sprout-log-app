@@ -2,7 +2,7 @@
 
   This is the Sprout Log app. Login and add your plants to the list and keep track of their health. The dashboard helps you track the last time you updated the plant's status. The app is fully responsive and works on both desktop and mobile.
 
-  ![A screenshot of the Sprout Log dashboard](desktop-screenshot.png)
+  ![A screenshot of the Sprout Log dashboard](./public/desktop-screenshot.png)
 
 ## References
 
