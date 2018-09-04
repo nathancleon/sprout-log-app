@@ -39,6 +39,12 @@ function newPlant() {
 function modalNewPlant() {
   $('.btn--new__plant').on('click', function(event) {
     event.preventDefault();
+    $('#name').val('');
+    $('#plantType').val('');
+    $("#currentHealth").val('');
+
+    $('.btn--update').hide();
+    $('.btn--submit').show();
     $('.plant__form__container').addClass('js__modal--active');
     $('.overlay').css('display', 'block');
   });
@@ -62,6 +68,8 @@ function closeModal() {
 //takes values of selected plant and puts it in form inputs
 function updateForm() {
   $('body').on('click', '.btn--edit', function() {
+      $('.plant__form__container').addClass('js__modal--active');
+      $('.overlay').css('display', 'block');
       let id = $(this).attr('data-id');
       let name = $(this).parent().siblings('.plant__item--name').text();
       let plantType = $(this).parent().siblings('.plant__item--type').text();
@@ -70,8 +78,6 @@ function updateForm() {
       $('input[name=name]').val(name);
       $('input[name=plantType]').val(plantType);
       $('#currentHealth').val(currentHealth);
-
-      $('.plant__form__container').addClass('js__modal--active');
 
       $('.btn--submit').hide();
       $('.btn--update').show();
@@ -117,7 +123,6 @@ function updatePlant() {
     $('#name').val('');
     $('#plantType').val('');
     $("#currentHealth").val('');
-
     $('.btn--update').hide();
     $('.btn--submit').show();
   });
