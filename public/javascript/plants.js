@@ -21,6 +21,8 @@ function newPlant() {
       currentHealth: currentHealth,
       userID: userID
     };
+    $('.plant__form__container').removeClass('js__modal--active');
+      $('.overlay').css('display', 'none');
     $.ajax({ 
       type: "POST", 
       contentType: 'application/json',

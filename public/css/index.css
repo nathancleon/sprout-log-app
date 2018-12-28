@@ -164,12 +164,23 @@ video {
   padding: 40px;
 }
 
-.description--text {
+.description__container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.description--heading {
   font-weight: 400;
   text-align: center;
   color: #555;
-  align-self: center;
-  width: 20%;
+  margin-bottom: 20px;
+}
+
+.description--text {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .description--image {
@@ -210,11 +221,8 @@ video {
     height: 100%;
   }
   
-  .description--text {
-    font-weight: 400;
-    text-align: center;
-    color: #555;
-    min-width: 100%;
+  .description__container {
+    width: 70%;
     margin-bottom: 50px;
   }
 
@@ -283,11 +291,11 @@ video {
   .main__description {
     height: 100%;
   }
-  
-  .description--text {
-    margin-bottom: 50px;
-  }
 
+  .description__container {
+    width: 90%;
+  }
+  
   .image2 {
     height: 80vw;
   }
