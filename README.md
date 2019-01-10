@@ -1,10 +1,24 @@
 # Sprout Log
 
-  This is the Sprout Log app. Login and add your plants to the list and keep track of their health. The dashboard helps you track the last time you updated the plant's status. The app is fully responsive and works on both desktop and mobile.
+View a live demo [here](https://sprout-log.herokuapp.com/)!
 
-  A live version of the app can be accessed [here](https://sprout-log.herokuapp.com/)
+## About The App
 
-  ![A screenshot of the Sprout Log dashboard](./public/desktop-screenshot.png)
+The intention behing SproutLog is to have a place where I can log in and update the current health of the plants in my home. The user can log in and see the last date a plant's health was updated and change the current status to Dying, Browning, Yellowing, and Healthy. This is so that the user can pay closer attention to the plant's health and then respond accordingly, whether that be changing watering frequency or sunlight exposure.
+
+![A screenshot of the Sprout Log dashboard](./public/desktop-screenshot.png)
+  
+## API Documentation
+
+The API for this application is a simple CRUD(Create, Read, Update, Delete) API and has routes set up for each of these actions in the server section of this repo and the front end makes asynchronous calls to these endpoints. Authentication is handled using [Passport](http://www.passportjs.org/) session authentication. 
+
+## Technology Stack
+
+The front end was built using HTML, CSS, and jQuery.
+
+The back end was built using [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), and authentication was handled using [Passport](http://www.passportjs.org/) session authentication. 
+
+The database was built using [MongoDB](https://www.mongodb.com/) and [mlab](https://mlab.com/).
 
 ## References
 
